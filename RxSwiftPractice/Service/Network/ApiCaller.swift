@@ -48,6 +48,7 @@ class ApiCaller {
                 })
             return Disposables.create()
         }
+        .observe(on: ConcurrentDispatchQueueScheduler(qos: .background)) // (schedulers) observe on background thread
             
         
     }

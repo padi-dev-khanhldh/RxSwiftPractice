@@ -41,11 +41,13 @@ class HomeViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         // get post
-        homeVM.postObservable.subscribe(onNext: { [weak self] data in
-            DispatchQueue.main.async {
+        // (schedulers)update on mainthread
+        homeVM.postObservable
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] data in
+                print(Thread.isMainThread)
                 self?.tableView.reloadData()
-            }
-        }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         
     }
     override func viewWillAppear(_ animated: Bool) {

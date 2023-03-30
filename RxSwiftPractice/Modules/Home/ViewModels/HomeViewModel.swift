@@ -20,6 +20,7 @@ class HomeViewModel {
     func getPost() {
         print("Hello")
         ApiCaller.shared.sendRequest(route: PostRoute(endpoint: .getPosts)).subscribe(with: publishPost, onNext: { [weak self] _, data in
+            print(Thread.isMainThread)
             self?.posts = ListPosts(jsonObj: data as! JSON).posts!
             self?.publishPost.onNext(self?.posts)
         })

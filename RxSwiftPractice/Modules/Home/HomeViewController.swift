@@ -45,8 +45,11 @@ class HomeViewController: UIViewController {
         homeVM.postObservable
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] data in
+                //                DispatchQueue.main.async {
                 print(Thread.isMainThread)
                 self?.tableView.reloadData()
+                //                }
+                
             }).disposed(by: disposeBag)
         
     }

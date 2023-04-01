@@ -52,10 +52,12 @@ class HomeViewController: UIViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] data in
                 //                DispatchQueue.main.async {
-                print(Thread.isMainThread)
+//                print(Thread.isMainThread)
                 self?.tableView.reloadData()
                 //                }
                 
+            }, onCompleted: {
+                print("complete")
             }).disposed(by: disposeBag)
         
     }

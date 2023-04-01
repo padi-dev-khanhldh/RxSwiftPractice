@@ -20,12 +20,19 @@ class HomeViewModel {
     
     
     func getPost() {
-        print("Hello")
-        ApiCaller.shared.sendRequest(route: PostRoute(endpoint: .getPosts)).subscribe(with: publishPost, onNext: { [weak self] _, data in
-            print(Thread.isMainThread)
-            self?.posts = ListPosts(jsonObj: data as! JSON).posts!
-            self?.publishPost.onNext(self?.posts)
-        }).disposed(by: disposeBag)
+//        print("Hello")
+        if posts.isEmpty {
+            ApiCaller.shared.sendRequest(route: PostRoute(endpoint: .getPosts)).subscribe(with: publishPost, onNext: { [weak self] _, data in
+//                print(Thread.isMainThread)
+                self?.posts = ListPosts(jsonObj: data as! JSON).posts!
+                self?.publishPost.onNext(self?.posts)
+//                self?.publishPost.on(.completed)
+            }).disposed(by: disposeBag)
+        }
+        else {
+            publishPost.onNext(posts)
+//            publishPost.on(.completed)
+        }
     }
     
     func searchPostWithTitle(with title: String) -> Observable<[Post]> {

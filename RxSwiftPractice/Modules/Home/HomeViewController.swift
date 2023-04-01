@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 class HomeViewController: UIViewController {
+    @IBOutlet weak var searchBar: UISearchBar!
     let disposeBag = DisposeBag()
     @IBOutlet weak var btnSignOut: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
@@ -20,11 +21,16 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
+        tableView.delegate = self
         setUpSubcriptions()
         
+        setUpSearchBar()
         homeVM.getPost()
     }
-    
+    func setUpSearchBar() {
+        navigationItem.titleView = searchBar
+        searchBar.delegate = self
+    }
     func setUpSubcriptions() {
         // button sign out subcription
         btnSignOut.rx.tap.asObservable().subscribe(onNext: { [weak self] in
@@ -84,6 +90,37 @@ extension HomeViewController: UITableViewDataSource {
         cell.textLabel?.text = homeVM.posts[indexPath.row].title
         return cell
     }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("hello")
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+            //            tableView.delegate = nil
+            tableView.dataSource = nil
+            homeVM.searchPostWithTitle(with: searchText)
+                .observe(on: MainScheduler.instance)
+                .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) {
+                    row, element, cell in
+                    cell.textLabel?.text = element.title
+                }.disposed(by: disposeBag)
+            
+        }
+        else {
+            tableView.delegate = self
+            tableView.dataSource = self
+            homeVM.getPost()
+        }
+    }
     
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }

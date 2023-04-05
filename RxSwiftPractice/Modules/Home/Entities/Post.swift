@@ -14,6 +14,7 @@ class Post: BaseModel {
     var postId: Int?
     var title: String?
     var body: String?
+    var comments = [Comment]()
     override func mapping(json: JSON) {
         userId = json["userId"].int
         postId = json["id"].int

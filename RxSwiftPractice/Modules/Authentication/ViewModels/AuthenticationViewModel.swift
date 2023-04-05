@@ -18,7 +18,7 @@ class AuthenticationViewModel {
         GIDSignIn.sharedInstance.signIn(withPresenting: viewcontroller) { [weak self] signInResult, error in
             guard let result = signInResult else {
                 self?.authObservable.onNext(nil)
-                //self?.authObservable.onError(MyError.signInFailed)
+                self?.authObservable.onError(MyError.signInFailed)
                 return
             }
             // If sign in succeeded, display the app's main content View.

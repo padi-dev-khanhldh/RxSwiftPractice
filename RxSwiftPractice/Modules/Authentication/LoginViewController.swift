@@ -29,10 +29,6 @@ class LoginViewController: UIViewController {
                 self?.navigationController?.viewControllers.removeAll(where: { $0 === self?.`self`()})
                 
             }
-        }, onCompleted: {
-            print("completed")
-        }, onDisposed: {
-            print("disposed")
         }).disposed(by: dbag)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +40,6 @@ class LoginViewController: UIViewController {
         
     }
     deinit {
-        
         print("Loginview denit")
     }
 }

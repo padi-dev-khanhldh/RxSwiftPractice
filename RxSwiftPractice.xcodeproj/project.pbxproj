@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8457870B29DD07F6002909E0 /* CommentsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457870A29DD07F6002909E0 /* CommentsRoute.swift */; };
+		8457870F29DD0909002909E0 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457870E29DD0909002909E0 /* Comment.swift */; };
+		8457871229DD1AB9002909E0 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457871129DD1AB9002909E0 /* CommentViewController.swift */; };
 		846F005429D3E5690062C797 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F005329D3E5690062C797 /* BaseModel.swift */; };
 		846F005829D3E5760062C797 /* BaseRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F005729D3E5760062C797 /* BaseRoute.swift */; };
 		846F007129D3E7410062C797 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F007029D3E7410062C797 /* Constant.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8457870A29DD07F6002909E0 /* CommentsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsRoute.swift; sourceTree = "<group>"; };
+		8457870E29DD0909002909E0 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		8457871129DD1AB9002909E0 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		846F005329D3E5690062C797 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		846F005729D3E5760062C797 /* BaseRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRoute.swift; sourceTree = "<group>"; };
 		846F007029D3E7410062C797 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				846F007629D3EC960062C797 /* PostRoute.swift */,
+				8457870A29DD07F6002909E0 /* CommentsRoute.swift */,
 			);
 			path = Route;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 			children = (
 				846F00A429D41F660062C797 /* ListPosts.swift */,
 				846F00A829D41F850062C797 /* Post.swift */,
+				8457870E29DD0909002909E0 /* Comment.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -208,6 +216,7 @@
 				84E3C13D29D296F900034EC2 /* ViewModels */,
 				84E3C13729D296B100034EC2 /* Home.storyboard */,
 				84E3C13A29D296E900034EC2 /* HomeViewController.swift */,
+				8457871129DD1AB9002909E0 /* CommentViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -367,9 +376,12 @@
 				84E3C14D29D2A0D800034EC2 /* AuthenticationViewModel.swift in Sources */,
 				84E3C11529D291D100034EC2 /* AppDelegate.swift in Sources */,
 				84E3C13F29D2972000034EC2 /* HomeViewModel.swift in Sources */,
+				8457871229DD1AB9002909E0 /* CommentViewController.swift in Sources */,
 				84E3C13B29D296E900034EC2 /* HomeViewController.swift in Sources */,
 				846F007729D3EC960062C797 /* PostRoute.swift in Sources */,
+				8457870F29DD0909002909E0 /* Comment.swift in Sources */,
 				846F007C29D3EF450062C797 /* ApiCaller.swift in Sources */,
+				8457870B29DD07F6002909E0 /* CommentsRoute.swift in Sources */,
 				846F00A529D41F660062C797 /* ListPosts.swift in Sources */,
 				846F00B029D42E160062C797 /* BaseResponse.swift in Sources */,
 			);

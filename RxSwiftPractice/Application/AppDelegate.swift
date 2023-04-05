@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nav = UINavigationController(rootViewController: loginViewController)
                 initialViewController = nav
             } else {
-                print("Signed in")
+                //print("Signed in")
                 let storyboard = UIStoryboard(name: "Home", bundle: nil)
                 let homeViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
                 let nav = UINavigationController(rootViewController: homeViewController)

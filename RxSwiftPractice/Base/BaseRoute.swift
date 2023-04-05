@@ -13,7 +13,7 @@ class BaseRoute: URLConvertible {
 //        guard var urlComponents = URLComponents(string: Constant.baseUrl + contextPath) else { return try (Constant.baseUrl + contextPath).asURL() }
 //        urlComponents.queryItems = [URLQueryItem(name: "api_key", value: Constant.api_key)]
 //        return try urlComponents.asURL()
-        print(Constant.baseUrl+contextPath+path!)
+        //print(Constant.baseUrl+contextPath+path!)
         return try (Constant.baseUrl+contextPath+path!).asURL()
     }
     
